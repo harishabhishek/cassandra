@@ -1,0 +1,53 @@
+
+############################
+ CREATE TEST
+############################
+
+TEST 1: Create 3 replicas of every key
+TEST 1 SCORE..................: 3 / 3
+
+############################
+ DELETE TEST
+############################
+
+TEST 1: Delete 3 replicas of every key
+TEST 2: Attempt delete of an invalid key
+TEST 1 SCORE..................: 3 / 3
+TEST 2 SCORE..................: 4 / 4
+
+############################
+ READ TEST
+############################
+
+TEST 1: Read a key. Check for correct value being read at least in quorum of replicas
+TEST 2: Read a key after failing a replica. Check for correct value being read at least in quorum of replicas
+TEST 3 PART 1: Read a key after failing two replicas. Read should fail
+TEST 3 PART 2: Read the key after allowing stabilization protocol to kick in. Check for correct value being read at least in quorum of replicas
+TEST 4: Read a key after failing a non-replica. Check for correct value being read at least in quorum of replicas
+TEST 5: Attempt read of an invalid key
+TEST 1 SCORE..................: 3 / 3
+TEST 2 SCORE..................: 9 / 9
+TEST 3 PART 1 SCORE..................: 9 / 9
+TEST 3 PART 2 SCORE..................: 10 / 10
+TEST 4 SCORE..................: 6 / 6
+TEST 5 SCORE..................: 3 / 3
+
+############################
+ UPDATE TEST
+############################
+
+TEST 1: Update a key. Check for correct value being updated at least in quorum of replicas
+TEST 2: Update a key after failing a replica. Check for correct value being updated at least in quorum of replicas
+TEST 3 PART 1: Update a key after failing two replicas. Update should fail
+TEST 3 PART 2: Update the key after allowing stabilization protocol to kick in. Check for correct value being updated at least in quorum of replicas
+TEST 4: Update a key after failing a non-replica. Check for correct value being updated at least in quorum of replicas
+TEST 5: Attempt update of an invalid key
+TEST 1 SCORE..................: 3 / 3
+TEST 2 SCORE..................: 9 / 9
+TEST 3 PART 1 SCORE..................: 9 / 9
+TEST 3 PART 2 SCORE..................: 10 / 10
+TEST 4 SCORE..................: 6 / 6
+TEST 5 SCORE..................: 3 / 3
+
+TOTAL GRADE: 90 / 90
+
